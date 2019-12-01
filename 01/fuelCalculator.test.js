@@ -1,6 +1,5 @@
 const fuelCalculator = require('./fuelCalculator');
 const input = require('./input');
-const inputParser = require('../utility/inputParser');
 
 describe('Fuel calculator - calculateFuelForMass', () => {
     it.each([
@@ -27,15 +26,13 @@ describe('Fuel calculator - calculateFuelForMassIncludingFuelMass', () => {
 })
 
 describe('Get final answer', () => {
-    const massInput = inputParser.splitOnNewlineIntoArray(input).map(i => parseInt(i, 10));
-
     it('Day 1 puzzle 1', () => {
-        const result = massInput.map(i => fuelCalculator.calculateFuelForMass(i)).reduce((p, c) => p + c, 0);
+        const result = input.reduce((p, c) => p + fuelCalculator.calculateFuelForMass(c), 0);
         console.log(`Day 1 Puzzle 1: ${result}`);
     });
     
     it('Day 1 puzzle 2', () => {
-        const result = massInput.map(i => fuelCalculator.calculateFuelForMassIncludingFuelMass(i)).reduce((p, c) => p + c, 0);
+        const result = input.reduce((p, c) => p + fuelCalculator.calculateFuelForMassIncludingFuelMass(c), 0);
         console.log(`Day 1 Puzzle 1: ${result}`);
     });
 });

@@ -1,5 +1,5 @@
-module.exports =
-`56123
+const inputParser = require('../utility/inputParser');
+const input = `56123
 145192
 123702
 66722
@@ -99,3 +99,5 @@ module.exports =
 109504
 103707
 54664`;
+
+module.exports = inputParser.splitOnNewlineIntoArray(input).map(i => parseInt(i, 10));
