@@ -5,7 +5,7 @@ const calculateFuelForMass = (mass) => {
 
 const calculateFuelForMassIncludingFuelMass = (mass) => {
     const fuel = calculateFuelForMass(mass);
-    return calculateFuelForMass(fuel) <= 0 ? fuel : fuel + calculateFuelForMassIncludingFuelMass(fuel);
+    return fuel <= 0 ? fuel : fuel + Math.max(calculateFuelForMassIncludingFuelMass(fuel), 0);
 }
 
 module.exports.calculateFuelForMass = calculateFuelForMass;
