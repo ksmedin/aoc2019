@@ -1,0 +1,23 @@
+{
+  "name": "aoc2019",
+  "version": "1.0.0",
+  "description": "advent of code 2019",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksmedin/aoc2019.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ksmedin/aoc2019/issues"
+  },
+  "homepage": "https://github.com/ksmedin/aoc2019#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
