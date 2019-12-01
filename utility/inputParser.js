@@ -1,0 +1,1 @@
+module.exports.splitOnNewlineIntoArray = (input) => input.split('\n').map(i => i.trim());
