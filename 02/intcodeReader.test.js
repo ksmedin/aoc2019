@@ -37,5 +37,6 @@ describe('get final answer', () => {
         const { success, noun, verb } = intcodeReader.whichNounAndVerbProduceWantedOutput(input, 19690720);
         const answer = success ? 100 * noun + verb : 'unknown';
         console.log(`Day 2 Puzzle 2: ${answer}`);
+        expect(answer).toBe(6533);
     });
 });

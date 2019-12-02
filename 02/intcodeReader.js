@@ -1,3 +1,4 @@
+// ==  option 1, for
 const interpretIntcode = (intcode) => {
     const mutable = [...intcode];
     const maxIterations = Math.ceil(mutable.length / 4);
@@ -16,6 +17,19 @@ const interpretIntcode = (intcode) => {
     return mutable;
 }
 
+// == option 2, while (terse)
+// const interpretIntcode = (intcode) => {
+//     const mutable = [...intcode];
+//     let operationIndex = 0;
+//     while (mutable[operationIndex] !== 99) {
+//         const operation = mutable[operationIndex] === 1 ? add : multiply;
+//         mutable[mutable[operationIndex + 3]] = operation(mutable[mutable[operationIndex + 1]], mutable[mutable[operationIndex + 2]]);
+//         operationIndex += 4;
+//     }
+   
+//     return mutable;
+// }
+
 const add = (n1, n2) => n1 + n2;
 const multiply = (n1, n2) => n1 * n2;
 
@@ -27,7 +41,7 @@ const whichNounAndVerbProduceWantedOutput = (intcode, wantedOutput) => {
             mutable[2] = verb;
             const [ output ] = interpretIntcode(mutable);
             if (output === wantedOutput) {
-                return { succes: true, noun, verb };
+                return { success: true, noun, verb };
             }
         }
         verb = 0;
