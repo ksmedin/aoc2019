@@ -1,7 +1,7 @@
-const intcodeReader = require('./intcodeReader');
+const code = require('./code');
 const input = require('./input');
 
-describe('intcode reader - interpretIntcode', () => {
+describe('Interpret Intcode', () => {
     it.each([
         ['1,0,0,0,99', '2,0,0,0,99'],
         ['2,3,0,3,99', '2,3,0,6,99'],
@@ -9,15 +9,15 @@ describe('intcode reader - interpretIntcode', () => {
         ['1,1,1,4,99,5,6,0,99', '30,1,1,4,2,5,6,0,99']
     ])('an intcode of %s should generate %s', (intcode, expected) => {
         const parsed = intcode.split(',').map(i => parseInt(i));
-        const result = intcodeReader.interpretIntcode(parsed);
+        const result = code.interpretIntcode(parsed);
         const reStringed = result.join(',');
         expect(reStringed).toEqual(expected);
     });
 });
 
-describe('intcode reader - whichNounAndVerbProduceWantedOutput', () => {
+describe('which noun and verb produce wanted output', () => {
     it('should give 12 and 2 as noun and verb', () => {
-        const { noun, verb } = intcodeReader.whichNounAndVerbProduceWantedOutput(input, 3790689);
+        const { noun, verb } = code.whichNounAndVerbProduceWantedOutput(input, 3790689);
         expect(noun).toEqual(12);
         expect(verb).toEqual(2);
     });
@@ -28,13 +28,13 @@ describe('get final answer', () => {
         const intcode = [...input];
         intcode[1] = 12;
         intcode[2] = 2;
-        const [ output ] = intcodeReader.interpretIntcode(intcode);
+        const [ output ] = code.interpretIntcode(intcode);
         console.log(`Day 2 Puzzle 1: ${output}`);
         expect(output).toBe(3790689);
     });
     
     it('Day 2 puzzle 2', () => {
-        const { success, noun, verb } = intcodeReader.whichNounAndVerbProduceWantedOutput(input, 19690720);
+        const { success, noun, verb } = code.whichNounAndVerbProduceWantedOutput(input, 19690720);
         const answer = success ? 100 * noun + verb : 'unknown';
         console.log(`Day 2 Puzzle 2: ${answer}`);
         expect(answer).toBe(6533);
