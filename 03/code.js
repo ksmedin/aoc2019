@@ -2,7 +2,7 @@ const getDistanceFromCentralPortToClosestIntersection = ([firstWirePath, secondW
     const pathOne = getWirePath(firstWirePath);
     const pathTwo = getWirePath(secondWirePath);
 
-    const parseStringToPoint = strPoint => { const s = strPoint.split(','); return { x: parseInt(s[0]), y: parseInt(s[1])}};
+    const parseStringToPoint = strPoint => { const [ x, y ] = strPoint.split(','); return { x: parseInt(x), y: parseInt(y)}};
     const intersections = [...pathOne.keys()]
         .filter(p1 => pathTwo.has(p1))
         .map(parseStringToPoint);
